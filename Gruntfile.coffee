@@ -104,10 +104,6 @@ module.exports = (grunt) ->
         options:
           run: true
 
-  grunt.task.registerTask 'disable_compression', 'Inline code from one file into another',  ->
-
-    grunt.config.set('shell.gzip_js_files.command', ':') #urgh, I feel dirty.
-
   grunt.task.registerTask 'code_inliner', 'Inline code from one file into another',  ->
     min_filename = (filename) -> filename.replace(/\.\w+$/,'.min$&')
     debug_filename = (filename) -> filename
@@ -136,13 +132,11 @@ module.exports = (grunt) ->
         target_filepath, '__INLINE_JS_PLACEHOLDER__'
 
 
-  grunt.registerTask 'compile_production', [
+  grunt.registerTask 'compile', [
     'clean', 'copy:build', 'coffee', 'sass', 'cssUrlEmbed', 'cssmin', 'concat', 'mocha', 'uglify', 'code_inliner',
     'shell:gzip_js_files', 'copy:dist_loader_aliases', 'copy:dist_static_content']
 
-  grunt.registerTask 'compile_development', [ 'disable_compression', 'compile_production', ]
-
-  grunt.registerTask 'default', ['compile_development']
+  grunt.registerTask 'default', ['compile']
 
   grunt.loadNpmTasks 'grunt-contrib-sass'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
