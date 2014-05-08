@@ -5,4 +5,5 @@ shasum --check Gemfile.lock.sha-cache || (
   bundle -j4
   shasum Gemfile.lock > Gemfile.lock.sha-cache
 )
+npm install -g grunt-cli
 npm install

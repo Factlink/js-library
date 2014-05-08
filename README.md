@@ -5,8 +5,7 @@ This is the Factlink JavaScript Library that introduces Factlink's functionality
 ## Getting Started
 
 ```bash
-$ npm install -g grunt
-$ npm install
+$ bin/bootstrap
 $ grunt
 ```
 
