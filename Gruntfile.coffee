@@ -57,25 +57,14 @@ module.exports = (grunt) ->
         files:
           'build/js/loader/loader_common.min.js':       ['build/js/loader/loader_common.js']
     copy:
-      dist_loader_aliases:
+      dist:
         files: [
-          { src: 'build/js/loader/loader_common.js', dest: 'output/dist/factlink_loader.js' }
-          { src: 'build/js/loader/loader_common.js', dest: 'output/dist/factlink_loader_publishers.js' } #obsolete; support for legacy publishers
-          { src: 'build/js/loader/loader_common.js', dest: 'output/dist/factlink_loader_basic.js' } #obsolete; support for legacy extensions
-          { src: 'build/js/loader/loader_common.js', dest: 'output/dist/factlink_loader_bookmarklet.js' } #obsolete; support for legacy bookmarklets
-
-          { src: 'build/js/loader/loader_common.min.js', dest: 'output/dist/factlink_loader.min.js' }
-          { src: 'build/js/loader/loader_common.min.js', dest: 'output/dist/factlink_loader_publishers.min.js' }
-          { src: 'build/js/loader/loader_common.min.js', dest: 'output/dist/factlink_loader_basic.min.js' }
-          { src: 'build/js/loader/loader_common.min.js', dest: 'output/dist/factlink_loader_bookmarklet.min.js' }
+          { src: 'build/js/loader/loader_common.js', dest: 'output/factlink_loader.js' }
+          { src: 'build/js/loader/loader_common.min.js', dest: 'output/factlink_loader.min.js' }
         ]
       build:
         files: [
           { src: ['**/*.js', '**/*.png', '**/*.gif', '**/*.woff', 'robots.txt'], cwd: 'app', dest: 'build', expand: true }
-        ]
-      dist_static_content:
-        files: [
-          { src: ['robots.txt'], cwd: 'build', dest: 'output/dist', expand: true }
         ]
     watch:
       files: ['app/**/*', 'Gruntfile.coffee']
@@ -115,8 +104,8 @@ module.exports = (grunt) ->
 
 
   grunt.registerTask 'compile', [
-    'clean', 'copy:build', 'coffee', 'sass', 'cssUrlEmbed', 'cssmin', 'concat', 'mocha', 'uglify', 'code_inliner',
-    'copy:dist_loader_aliases', 'copy:dist_static_content']
+    'clean', 'copy:build', 'coffee', 'sass', 'cssUrlEmbed', 'cssmin',
+    'concat', 'mocha', 'uglify', 'code_inliner', 'copy:dist']
 
   grunt.registerTask 'default', ['compile']
 

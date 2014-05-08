@@ -7,8 +7,8 @@
   ],
   "description": "Factlink's client side library",
   "main": [
-    "output/dist/factlink_loader.js",
-    "output/dist/factlink_loader.min.js"
+    "output/factlink_loader.js",
+    "output/factlink_loader.min.js"
   ],
   "keywords": [
     "factlink",
