@@ -74,6 +74,11 @@ module.exports = (grunt) ->
         src: ['tests/**/*.html']
         options:
           run: true
+    connect:
+      server:
+        options:
+          port: 8000,
+          base: 'output'
 
   grunt.task.registerTask 'code_inliner', 'Inline code from one file into another',  ->
     min_filename = (filename) -> filename.replace(/\.\w+$/,'.min$&')
@@ -108,6 +113,7 @@ module.exports = (grunt) ->
     'concat', 'mocha', 'uglify', 'code_inliner', 'copy:dist']
 
   grunt.registerTask 'default', ['compile']
+  grunt.registerTask 'server', ['compile', 'connect', 'watch']
 
   grunt.loadNpmTasks 'grunt-contrib-sass'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
@@ -117,5 +123,6 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-cssmin'
   grunt.loadNpmTasks 'grunt-contrib-clean'
+  grunt.loadNpmTasks 'grunt-contrib-connect'
   grunt.loadNpmTasks 'grunt-css-url-embed'
   grunt.loadNpmTasks 'grunt-mocha'
