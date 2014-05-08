@@ -16,6 +16,7 @@
   "dependencies": {
     "uglify-js": "=2.4.4",
     "grunt": "~0.4.2",
+    "grunt-cli": "^0.1.13",
     "grunt-contrib-sass": "~0.6.0",
     "grunt-contrib-uglify": "~0.2.7",
     "grunt-contrib-copy": "~0.4.1",
