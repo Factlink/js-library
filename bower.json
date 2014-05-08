@@ -1,0 +1,25 @@
+{
+  "name": "factlink-js-library",
+  "version": "0.1.0",
+  "homepage": "https://github.com/Factlink/js-library",
+  "authors": [
+    "Factlink Team"
+  ],
+  "description": "Factlink's client side library",
+  "main": [
+    "output/dist/factlink_loader.js",
+    "output/dist/factlink_loader.min.js"
+  ],
+  "keywords": [
+    "factlink",
+    "annotation",
+    "discussions"
+  ],
+  "license": "GPL",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "tests"
+  ]
+}

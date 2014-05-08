@@ -3,10 +3,6 @@
 timer = require 'grunt-timer'
 path = require 'path'
 fs = require 'fs'
-compress_command = (file) -> "7z a -tgzip -mfb=258  -mx=9 -mpass=15 '#{file}.gz' '#{file}'"
-
-#compresses less: gzip -9 -f < "{}" > "{}.gz"
-
 
 module.exports = (grunt) ->
   timer.init(grunt)
@@ -60,10 +56,6 @@ module.exports = (grunt) ->
       factlink_loader:
         files:
           'build/js/loader/loader_common.min.js':       ['build/js/loader/loader_common.js']
-    shell:
-      gzip_js_files:
-        options: failOnError: true
-        command: compress_command('build/js/loader/loader_common.min.js')
     copy:
       dist_loader_aliases:
         files: [
@@ -76,16 +68,6 @@ module.exports = (grunt) ->
           { src: 'build/js/loader/loader_common.min.js', dest: 'output/dist/factlink_loader_publishers.min.js' }
           { src: 'build/js/loader/loader_common.min.js', dest: 'output/dist/factlink_loader_basic.min.js' }
           { src: 'build/js/loader/loader_common.min.js', dest: 'output/dist/factlink_loader_bookmarklet.min.js' }
-
-          { src: 'build/js/loader/loader_common.js.gz', dest: 'output/dist/factlink_loader.js.gz' }
-          { src: 'build/js/loader/loader_common.js.gz', dest: 'output/dist/factlink_loader_publishers.js.gz' }
-          { src: 'build/js/loader/loader_common.js.gz', dest: 'output/dist/factlink_loader_basic.js.gz' }
-          { src: 'build/js/loader/loader_common.js.gz', dest: 'output/dist/factlink_loader_bookmarklet.js.gz' }
-
-          { src: 'build/js/loader/loader_common.min.js.gz', dest: 'output/dist/factlink_loader.min.js.gz' }
-          { src: 'build/js/loader/loader_common.min.js.gz', dest: 'output/dist/factlink_loader_publishers.min.js.gz' }
-          { src: 'build/js/loader/loader_common.min.js.gz', dest: 'output/dist/factlink_loader_basic.min.js.gz' }
-          { src: 'build/js/loader/loader_common.min.js.gz', dest: 'output/dist/factlink_loader_bookmarklet.min.js.gz' }
         ]
       build:
         files: [
@@ -134,7 +116,7 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'compile', [
     'clean', 'copy:build', 'coffee', 'sass', 'cssUrlEmbed', 'cssmin', 'concat', 'mocha', 'uglify', 'code_inliner',
-    'shell:gzip_js_files', 'copy:dist_loader_aliases', 'copy:dist_static_content']
+    'copy:dist_loader_aliases', 'copy:dist_static_content']
 
   grunt.registerTask 'default', ['compile']
 
@@ -147,5 +129,4 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-cssmin'
   grunt.loadNpmTasks 'grunt-contrib-clean'
   grunt.loadNpmTasks 'grunt-css-url-embed'
-  grunt.loadNpmTasks 'grunt-shell'
   grunt.loadNpmTasks 'grunt-mocha'

@@ -1,9 +1,9 @@
 {
   "author": "Factlink Team",
-  "name": "js-library",
-  "title": "Factlink JavaScript library",
-  "description": "javascript library",
-  "version": "0.0.19",
+  "name": "factlink-js-library",
+  "title": "Factlink/js-library",
+  "description": "Factlink's client side library",
+  "version": "0.1.0",
   "homepage": "https://factlink.com",
   "repository": {
     "type": "git",
@@ -27,7 +27,6 @@
     "grunt-contrib-clean": "~0.5.0",
     "grunt-timer": "~0",
     "grunt-css-url-embed": "~0.1.2",
-    "grunt-shell": "~0.6.1",
     "grunt-mocha": "~0.4.10"
   }
 }
