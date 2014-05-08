@@ -1,3 +1,4 @@
 /build
 /node_modules
 /.bundle
+Gemfile.lock.sha-cache
