@@ -1,4 +1,6 @@
-# Factlink JavaScript Library [![Build Status](https://travis-ci.org/Factlink/js-library.svg?branch=master)](https://travis-ci.org/Factlink/js-library) [![Dependency Status](https://gemnasium.com/Factlink/js-library.svg)](https://gemnasium.com/Factlink/js-library)
+# Factlink JavaScript Library
+
+[![Build Status](https://travis-ci.org/Factlink/js-library.svg?branch=master)](https://travis-ci.org/Factlink/js-library) [![Dependency Status](https://gemnasium.com/Factlink/js-library.svg)](https://gemnasium.com/Factlink/js-library)
 
 This is the Factlink JavaScript Library that introduces Factlink's functionality on websites.
 
