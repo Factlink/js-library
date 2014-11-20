@@ -64,7 +64,7 @@ class IconButton
     targetColor = style.color
 
     # See https://gamedev.stackexchange.com/questions/38536/given-a-rgb-color-x-how-to-find-the-most-contrasting-color-y/38561#38561
-    targetRGB = targetColor.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/)
+    targetRGB = targetColor.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(,\s*\d+(\.\d+)?)?\)$/)
     r = targetRGB[1]/255; g = targetRGB[2]/255; b = targetRGB[3]/255;
     targetBrightness = 0.2126*r*r + 0.7152*g*g + 0.0722*b*b
 
