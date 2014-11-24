@@ -10,7 +10,7 @@
     "url": "git@github.com:Factlink/js-library.git"
   },
   "scripts": {
-    "test": "grunt"
+    "test": "grunt; node .github/setup.js"
   },
   "dependencies": {
     "grunt": "^0.4.2",
